@@ -1,6 +1,9 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const mitLic = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+const gnuLic = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+const apacheLic = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
 
 inquirer
   .prompt([
@@ -43,7 +46,7 @@ inquirer
       type: 'list',
       message: 'License',
       name: 'License',
-      choices:['License A', 'License B', 'License C']
+      choices:['MIT License', 'GNU GPL V.3 License', 'Apache v.2 License']
     },
     {
       type: 'input',
@@ -62,8 +65,19 @@ inquirer
     },
   ])
   .then((response) => {
-      const readMeText = `# ${response.title}
+    let license;   
+    if (response.License === 'MIT License') {
+      license = mitLic
+    } else if (response.License === 'GNU GPL V.3 License') {
+      license = gnuLic
+    } else {
+      license = apacheLic
+    }
 
+
+    const readMeText = `# ${response.title}
+
+${license}
 
 ## Description:
 
@@ -109,45 +123,17 @@ ${response.License}
 
 ## Questions:
 
-` + '```md' + `
+Github:
 [${response.gitUser}]` + '(https://github.com/' + response.gitUser + ')' + `
-` + '```' + `
 
-` + '```md' + `
+Email:
 ${response.email}
-` + '```' + `
 
-` + '```md' + `
+Instructions on how to reach me:
 ${response.howToReachMe}
-` + '```' + `
 `;
       fs.writeFile('README.md', readMeText, err => {
         err ? console.error(err) : console.log('Success!')
         });
     });
 
-
-
-
-
-
-    // // TODO: Create an array of questions for user input
-// const questions = [];
-
-
-
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-
-
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-
-
-
-// // Function call to initialize app
-// init();
