@@ -67,59 +67,59 @@ inquirer
 
 ## Description:
 
-
+` + '```md' + `
 ${response.description}
-
+` + '```' + `
 
 ## Table of Contents:
 
-
+` + '```md' + `
 ${response.contents}
-
+` + '```' + `
 
 ## Installation:
 
-
+` + '```md' + `
 ${response.install}
-
+` + '```' + `
 
 ## Usage:
 
-
+` + '```md' + `
 ${response.usage}
-
+` + '```' + `
 
 ## Contributing:
 
-
+` + '```md' + `
 ${response.contribution}
-
+` + '```' + `
 
 ## Tests:
 
-
+` + '```md' + `
 ${response.test}
-
+` + '```' + `
 
 ## License:
 
-
+` + '```md' + `
 ${response.License}
-
+` + '```' + `
 
 ## Questions:
 
+` + '```md' + `
+[${response.gitUser}]` + '(https://github.com/' + response.gitUser + ')' + `
+` + '```' + `
 
-${response.gitUser}
-
-
-
+` + '```md' + `
 ${response.email}
+` + '```' + `
 
-
-
+` + '```md' + `
 ${response.howToReachMe}
-
+` + '```' + `
 `;
       fs.writeFile('README.md', readMeText, err => {
         err ? console.error(err) : console.log('Success!')
