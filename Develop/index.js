@@ -19,11 +19,6 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Enter table of contents',
-      name: 'contents',
-    },
-    {
-      type: 'input',
       message: 'Installation instructions',
       name: 'install',
     },
@@ -46,7 +41,7 @@ inquirer
       type: 'list',
       message: 'License',
       name: 'License',
-      choices:['MIT License', 'GNU GPL V.3 License', 'Apache v.2 License']
+      choices:['MIT License', 'GNU GPL V.3 License', 'Apache v.2 License', 'None']
     },
     {
       type: 'input',
@@ -70,8 +65,10 @@ inquirer
       license = mitLic
     } else if (response.License === 'GNU GPL V.3 License') {
       license = gnuLic
-    } else {
+    } else if (response.License === 'Apache v.2 License') {
       license = apacheLic
+    } else {
+      license = ''
     }
 
 
@@ -87,9 +84,14 @@ ${response.description}
 
 ## Table of Contents:
 
-` + '```md' + `
-${response.contents}
-` + '```' + `
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributions](#contribution)
+- [Tests](#tests)
+- [License](#license)
+- [Questions](#questions)
+
 
 ## Installation:
 
@@ -103,7 +105,7 @@ ${response.install}
 ${response.usage}
 ` + '```' + `
 
-## Contributing:
+## Contributions:
 
 ` + '```md' + `
 ${response.contribution}
