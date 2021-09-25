@@ -39,9 +39,9 @@ Creator - David Jay
 
 ## Video Link:
 
-```md
 
-```
+Watch a video showing how the application works: [Click Here](https://watch.screencastify.com/v/w2or47YTYmH2x3WaQKEP)
+
 
 ## License:
 
@@ -58,4 +58,4 @@ Email:
 djay8400@gmail.com
 
 Instructions on how to reach me:
-If you have any questions about the app, please feel free to contact me through the email address provide.
+If you have any questions about the app, please feel free to contact me through the email address provided.
